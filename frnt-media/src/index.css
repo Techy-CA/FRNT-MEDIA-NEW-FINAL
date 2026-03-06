@@ -1,0 +1,39 @@
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#080808; --white:#F2EDE6;
+  --c:#5CF4E4; --y:#FFE44D; --p:#FF5FA3; --v:#B87FFF;
+  --dim:#141414; --border:rgba(255,255,255,0.07);
+  --muted:rgba(255,255,255,0.35);
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;cursor:none}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--y);color:var(--black)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--p)}
+section{padding:120px 56px}
+.sec-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--p);font-weight:500;margin-bottom:18px}
+.sec-tag.c{color:var(--c)} .sec-tag.v{color:var(--v)} .sec-tag.y{color:var(--y)}
+.sec-h{font-family:'Bebas Neue';font-size:clamp(2.8rem,5.5vw,5rem);line-height:.95;margin-bottom:72px}
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .8s,transform .8s}
+.reveal.on{opacity:1;transform:translateY(0)}
+.btn-main{background:var(--p);color:var(--black);padding:14px 32px;border-radius:2px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .25s;display:inline-block;cursor:none;border:none}
+.btn-main:hover{background:var(--y);transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,95,163,.25)}
+.btn-ghost{border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.4);padding:14px 32px;border-radius:2px;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:all .25s;display:inline-block;cursor:none}
+.btn-ghost:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+
+@media(max-width:1024px){
+  section{padding:100px 40px}
+  .sec-h{margin-bottom:56px}
+}
+@media(max-width:768px){
+  body{cursor:auto}
+  section{padding:72px 20px}
+  .sec-h{margin-bottom:40px;font-size:clamp(2.2rem,9vw,3.5rem)}
+  .btn-main,.btn-ghost{padding:13px 26px;font-size:.75rem;cursor:pointer}
+}
+@media(max-width:480px){
+  section{padding:60px 16px}
+  .sec-h{font-size:clamp(2rem,11vw,3rem)}
+}
