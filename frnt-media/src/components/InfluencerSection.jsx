@@ -13,6 +13,8 @@ export default function InfluencerSection() {
       <div className="sec-tag c reveal">— Creator Economy</div>
       <h2 className="sec-h reveal" style={{transitionDelay:'.1s'}}>BRANDS MEET<br/>CREATORS.</h2>
       <div className="inf-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:80,alignItems:'center'}}>
+
+        {/* Left — cards */}
         <div className="reveal" style={{transitionDelay:'.15s'}}>
           <div style={{display:'flex',flexDirection:'column',gap:12}}>
             {cards.map((c,i)=>(
@@ -29,6 +31,8 @@ export default function InfluencerSection() {
             ))}
           </div>
         </div>
+
+        {/* Right — text */}
         <div className="reveal" style={{transitionDelay:'.25s'}}>
           <p style={{fontSize:'1rem',lineHeight:1.9,color:'rgba(242,237,230,.6)',fontWeight:300,marginBottom:22}}>
             We sit at the center of <strong style={{color:'var(--white)',fontWeight:500}}>brands and creators</strong> — making sure both win. Brands get targeted reach and measurable ROI. Creators get <strong style={{color:'var(--c)'}}>fair deals</strong> and <strong style={{color:'var(--p)'}}>creative freedom</strong>.
@@ -36,10 +40,12 @@ export default function InfluencerSection() {
           <p style={{fontSize:'1rem',lineHeight:1.9,color:'rgba(242,237,230,.6)',fontWeight:300}}>
             Whether you are a <strong style={{color:'var(--white)'}}>D2C brand</strong> trying to break through or a creator with 10K loyal followers looking for your first deal — frnt media is your growth partner.
           </p>
-          <div style={{display:'flex',gap:12,flexWrap:'wrap',marginTop:36}}>
+
+          {/* Pills — nowrap */}
+          <div style={{display:'flex',gap:10,flexWrap:'nowrap',marginTop:36}}>
             {[{l:'For Brands',c:'var(--p)'},{l:'For Creators',c:'var(--c)'},{l:'For Agencies',c:'var(--v)'}].map(p=>(
               <div key={p.l} data-hover
-                style={{display:'flex',alignItems:'center',gap:9,border:'1px solid rgba(255,255,255,.1)',borderRadius:100,padding:'11px 20px',fontSize:'.8rem',fontWeight:500,transition:'all .25s'}}
+                style={{display:'flex',alignItems:'center',gap:9,border:'1px solid rgba(255,255,255,.1)',borderRadius:100,padding:'11px 20px',fontSize:'.8rem',fontWeight:500,transition:'all .25s',whiteSpace:'nowrap'}}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor=p.c;e.currentTarget.style.color=p.c}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,.1)';e.currentTarget.style.color='var(--white)'}}>
                 <div style={{width:7,height:7,borderRadius:'50%',background:p.c,flexShrink:0}}/>{p.l}
@@ -47,8 +53,22 @@ export default function InfluencerSection() {
             ))}
           </div>
         </div>
+
       </div>
-      <style>{`@media(max-width:900px){.inf-grid{grid-template-columns:1fr!important;gap:48px!important}}`}</style>
+      <style>{`
+        @media(max-width:900px){
+          .inf-grid{grid-template-columns:1fr !important;gap:48px !important}
+        }
+        @media(max-width:480px){
+          .inf-grid > div:last-child > div[style*="nowrap"]{
+            gap:8px !important
+          }
+          .inf-grid > div:last-child > div[style*="nowrap"] > div{
+            padding:9px 14px !important;
+            font-size:.72rem !important
+          }
+        }
+      `}</style>
     </section>
   )
 }
