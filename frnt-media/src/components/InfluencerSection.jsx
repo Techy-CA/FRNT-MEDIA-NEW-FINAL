@@ -41,11 +41,11 @@ export default function InfluencerSection() {
             Whether you are a <strong style={{color:'var(--white)'}}>D2C brand</strong> trying to break through or a creator with 10K loyal followers looking for your first deal — frnt media is your growth partner.
           </p>
 
-          {/* Pills — nowrap */}
-          <div style={{display:'flex',gap:10,flexWrap:'nowrap',marginTop:36}}>
+          {/* ✅ FIXED: flexWrap nowrap → wrap (was causing overflow on mobile) */}
+          <div className="inf-pills" style={{display:'flex',gap:10,flexWrap:'wrap',marginTop:36}}>
             {[{l:'For Brands',c:'var(--p)'},{l:'For Creators',c:'var(--c)'},{l:'For Agencies',c:'var(--v)'}].map(p=>(
               <div key={p.l} data-hover
-                style={{display:'flex',alignItems:'center',gap:9,border:'1px solid rgba(255,255,255,.1)',borderRadius:100,padding:'11px 20px',fontSize:'.8rem',fontWeight:500,transition:'all .25s',whiteSpace:'nowrap'}}
+                style={{display:'flex',alignItems:'center',gap:9,border:'1px solid rgba(255,255,255,.1)',borderRadius:100,padding:'11px 20px',fontSize:'.8rem',fontWeight:500,transition:'all .25s',cursor:'pointer',touchAction:'manipulation'}}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor=p.c;e.currentTarget.style.color=p.c}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,.1)';e.currentTarget.style.color='var(--white)'}}>
                 <div style={{width:7,height:7,borderRadius:'50%',background:p.c,flexShrink:0}}/>{p.l}
@@ -60,13 +60,7 @@ export default function InfluencerSection() {
           .inf-grid{grid-template-columns:1fr !important;gap:48px !important}
         }
         @media(max-width:480px){
-          .inf-grid > div:last-child > div[style*="nowrap"]{
-            gap:8px !important
-          }
-          .inf-grid > div:last-child > div[style*="nowrap"] > div{
-            padding:9px 14px !important;
-            font-size:.72rem !important
-          }
+          .inf-pills > div{padding:9px 14px !important;font-size:.72rem !important}
         }
       `}</style>
     </section>

@@ -3,9 +3,17 @@ import React from 'react'
 export default function CTA({ onTalk }) {
   return (
     <section id="cta" style={{background:'var(--black)',textAlign:'center',position:'relative',overflow:'hidden',padding:'140px 40px'}}>
-      
-      {/* Glow */}
-      <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:600,height:600,borderRadius:'50%',background:'radial-gradient(circle,rgba(255,95,163,.07) 0%,transparent 70%)',pointerEvents:'none'}}/>
+
+      {/* ✅ Fixed: capped glow size on mobile */}
+      <div style={{
+        position:'absolute',top:'50%',left:'50%',
+        transform:'translate(-50%,-50%)',
+        width:'min(600px, 100vw)',
+        height:'min(600px, 100vw)',
+        borderRadius:'50%',
+        background:'radial-gradient(circle,rgba(255,95,163,.07) 0%,transparent 70%)',
+        pointerEvents:'none'
+      }}/>
 
       <div className="reveal" style={{fontSize:'.72rem',letterSpacing:'.2em',textTransform:'uppercase',color:'rgba(255,255,255,.25)',marginBottom:24}}>
         Ready to move forward?
@@ -42,7 +50,7 @@ export default function CTA({ onTalk }) {
           .cta-btn-main,.cta-btn-ghost{
             width:100% !important;
             text-align:center;
-            max-width:260px;
+            max-width:280px;
           }
         }
       `}</style>
